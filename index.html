@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Card Generator</title>
+        
+        <script src="assets/js/jquery.min.js"></script>
+        <link rel="stylesheet" href="assets/css/main.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-6 photo-wrap">
+                    <img class="main-img" src="assets/image/1.jpg" width="272" height="231" alt="banner">
+                    <h3 class="title">Legend</h3>
+                </div>
+                <div class="col-6 option-wrap">
+                    <div>
+                        <label>Change the width</label>
+                        <input type="number" min="200" max="600" class="img-width">Px
+                    </div>
+                    <div>
+                        <label>Change the height</label>
+                        <input type="number" min="200" max="600" class="img-height">Px
+                    </div>
+                    <div>
+                        <label>Input the text</label>
+                        <input type="text" class="main-text">
+                    </div>
+                    <div>
+                        <label>Change the picture</label>
+                        <input id="main-image" type="file">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script>
+        $(document).ready(function() {
+            $(".main-text").change(function(e) {
+                $('.title').html(e.target.value);
+            });
+            $('.img-height').change(function(e) {
+                var height = e.target.value;
+                if( height < 200) {
+                    alert("The height should be bigger than 200px")
+                } else {
+                    $(".main-img").css("height", height);
+                }
+            })
+            $('.img-width').change(function(e) {
+                var width = e.target.value;
+                if( width < 200) {
+                    alert("The width should be bigger than 200px")
+                } else {
+                    $(".main-img").css("width", width);
+                }
+            })
+            $('input[type="file"]').change(function(e) {
+                var fileName = e.target.files[0].name;
+                
+                var reader = new FileReader();
+                reader.onload = function(e) {
+                    // get loaded data and render thumbnail.
+                    $('.main-img').attr('src', e.target.result);
+                };
+                // read the image file as a data URL.
+                reader.readAsDataURL(this.files[0]);
+            });
+        })
+    </script>
+</html>

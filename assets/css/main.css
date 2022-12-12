@@ -1,0 +1,29 @@
+.container {
+    max-width: 800px;
+    margin: auto;
+}
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.row > * {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+.photo-wrap {
+    position: relative;
+}
+.photo-wrap img {    
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.photo-wrap .title {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+}
