@@ -20,8 +20,9 @@ body {
 }
 .main-content {
     padding: 6rem;
-    background-color: white;
+    background-color: lightblue;
     border-radius: .5rem;
+    color: white;
 }
 .photo-wrap {
     position: relative;
