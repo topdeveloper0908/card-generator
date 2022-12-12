@@ -61,3 +61,8 @@ input {
     outline: 0;
     border: 1px solid #eee;
 }
+h2 {
+    text-align: center;
+    font-size: 2.4rem;
+    margin-bottom: 0.7rem;
+}
